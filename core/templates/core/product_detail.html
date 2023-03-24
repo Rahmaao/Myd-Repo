@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+<h2>{{ product.name }}</h2>
+<div>
+    <div>
+        <a href="{% url 'create-multiple-variants' product.pk %}"> Create New Variant </a>
+        <hr/>
+        <a href=""> {{ product.name }} </a>
+        <a href=""> {{ product.description }} </a>
+        <a href=""> {{ product.sku }} </a>
+        <a href=""> {{ product.discount }} </a>
+        <a href=""> {{ product.stock }} </a>
+        <a href=""> {{ product.product_price }} </a>
+        <a href=""> {{ product.color }} </a>
+        <a href=""> {{ product.size }} </a>
+        <a href=""> {{ product.manufacturer }} </a>
+        <a href=""> {{ product.brand }} </a>
+        <a href=""> {{ product.dimension }} </a>
+        <a href=""> {{ product.weight }} </a>
+        <a href="{% url 'available' product.id %}">
+            {% if product.is_available %}
+                <button type="button">Available!</button>
+            {% else %}
+                <button type="button">Sold Out!</button>
+            {% endif %}
+        </a>
+        <a href="{% url 'product-update' product.id %}">
+            <button type="button">Edit</button>
+        </a
+        >
+        <a href="{% url 'generate-variant-combination' product.id %}">
+            <button type="button">Generate Variant Combinations</button>
+        </a
+        >
+        <a href="{% url 'delete-product' product.id %}">
+            <button type="button">Delete</button>
+        </a
+
+        >
+        <hr/>
+        Variants
+
+
+        {#    Loop through variants #}
+        <p>Stuff-a</p>
+        {{ product.variants }}
+        <ul>
+            {% for variant in product.variants %}
+                <li>
+
+                    Color: {{ variant.color_variant.color_name }}
+                    Size: {{ variant.size_variant.size_name }}
+                    Material: {{ variant.material_variant.material_name }}
+
+                    <a href="{% url 'delete-combination' variant.pk %}">
+                        <button type="button">Delete</button>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>

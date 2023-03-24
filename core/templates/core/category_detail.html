@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<a href="{% url 'product-add' %}">
+    <button type="button">Add New Product</button>
+</a>
+
+
+{% if category.product_set.all %}
+    <h2>Here is the list of Products in {{ category.name }}</h2>
+    <div>
+        {% for product in category.product_set.all %}
+            <div>
+                <a href="">
+                    {{ product.name }}
+                </a>
+                <a href="">
+                    {{ product.description }}
+                </a>
+                <a href="">
+                    {{ product.sku }}
+                </a>
+                <a href="">
+                    {{ product.discount }}
+                </a>
+                <a href="">
+                    {{ product.stock }}
+                </a>
+                <a href="">
+                    {{ product.product_price }}
+                </a>
+                <a href="">
+                    {{ product.color }}
+                </a>
+                <a href="">
+                    {{ product.size }}
+                </a>
+                <a href="">
+                    {{ product.manufacturer }}
+                </a>
+                <a href="">
+                    {{ product.brand }}
+                </a>
+                <a href="">
+                    {{ product.dimension }}
+                </a>
+                <a href="">
+                    {{ product.weight }}
+                </a>
+                <a href="{% url 'available' product.id %}">
+                    {% if product.is_available %}
+                        <button type="button">Available!</button>
+                    {% else %}
+                        <button type="button">Sold Out!</button>
+                    {% endif %}
+                </a>
+                <a href="{% url 'product-update' product.id %}">
+                    <button type="button">Edit</button>
+                </a>
+                <a href="{% url 'delete-product' product.id %}">
+                    <button type="button">Delete</button>
+                </a>
+                <a href="{% url 'product-details' product.id %}">
+                    <button type="button">Preview</button>
+                </a>
+
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>Category {{ productcategory.name }} has no items</div>
+{% endif %}
+
+
+</body>
+</html>

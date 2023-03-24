@@ -1,23 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from tablib import Dataset
-from .resources import PersonResource
-from .models import Person
-
-
-# Create your views here.
-
-def index(request):
-    return render(request, 'index.html')
-
-def users(request):
-    return render(request, 'users.html')
-
-
-
-
-
-
+from ..resources import PersonResource
+from ..models import *
+from ..forms import *
+from .. import models
 
 
 

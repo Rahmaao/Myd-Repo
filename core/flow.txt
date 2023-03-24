@@ -1,0 +1,42 @@
+- Create a Category
+- Create a Product with Category
+- Create a Product Variant
+
+--- Create a Category
+--- Create a Product with Category
+--- Create a Product Variant
+    --- Create ProductVariantMetadata Record with Product
+    --- Create Size/Color/Material Variant Records with ProductVariantMetadata
+
+
+
+[User creates Size Variant]
+
+- Large
+- Xtra large
+
+[Color Variants]
+
+- Yellow
+- Blue 2500
+
+(L-B, L-Y, XL-Y, XL-B)
+
+[Generate Combinations]
+
+---
+
+[Material]
+
+- Flannel
+- Silk
+
+[Generate]
+
+
+(L-B, L-Y, XL-Y, XL-B...) -- First Generation
+
+L - B --> 1200 sky SHOE-Blue-Large #
+
+(L-B-F, L-B-S...) -- Second Generation
+

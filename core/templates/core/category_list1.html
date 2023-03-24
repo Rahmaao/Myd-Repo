@@ -1,0 +1,21 @@
+{% block content %}
+
+    <h2>Categories-a</h2>
+    <ul>
+        {% for category in categories %}
+            <li>{{ category.name }}
+                {{ category.date }}
+                {{ category.product_count }}
+                <a href="{% url 'delete-category' category.id %}">
+                    <button type="button">Delete</button>
+                </a>
+                <a href="{% url 'category-update' category.id %}">
+                    <button type="button">Update</button>
+                </a>
+                <a href="{% url 'category-detail' category.id %}">
+                    <button type="button">Preview</button>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

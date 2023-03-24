@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="name" name="productname">
+    <input type="text" placeholder="description" name="description">
+    <input type="text" placeholder="product code" name="sku">
+    <input type="text" placeholder="discount" name="discount">
+    <input type="text" placeholder="price" name="product_price">
+    <input type="text" placeholder="color" name="color">
+    <input type="text" placeholder="size" name="size">
+    <input type="text" placeholder="manufacturer" name="manufacturer">
+    <input type="text" placeholder="brand" name="brand">
+    <input type="text" placeholder="dimension" name="dimension">
+    <input type="text" placeholder="weight" name="weight">
+    <input type="text" placeholder="stock" name="stock">
+    <input type="submit" value="Add Product">
+</form>
+
+
+
+{% if productlist %}
+    <h2>Here is the list of Products in {{ productcategory.name }}</h2>
+    <div>
+        {% for product in productlist %}
+            <div>
+                <a href="">
+                    {{ product.name }}
+                </a>
+                <a href="">
+                    {{ product.description }}
+                </a>
+                <a href="">
+                    {{ product.sku }}
+                </a>
+                <a href="">
+                    {{ product.discount }}
+                </a>
+                <a href="">
+                    {{ product.stock }}
+                </a>
+                <a href="">
+                    {{ product.product_price }}
+                </a>
+                <a href="">
+                    {{ product.color }}
+                </a>
+                <a href="">
+                    {{ product.size }}
+                </a>
+                <a href="">
+                    {{ product.manufacturer }}
+                </a>
+                <a href="">
+                    {{ product.brand }}
+                </a>
+                <a href="">
+                    {{ product.dimension }}
+                </a>
+                <a href="">
+                    {{ product.weight }}
+                </a>
+                <a href="{% url 'available' product.id %}">
+                    {% if product.is_available %}
+                        <button type="button">Available!</button>
+                    {% else %}
+                        <button type="button">Sold Out!</button>
+                    {% endif %}
+                </a>
+                <a href="{% url 'updateproduct' product.id %}">
+                    <button type="button">Edit</button>
+                </a>
+                <a href="{% url 'deleteproduct' product.id %}">
+                    <button type="button">Delete</button>
+                </a>
+                <a href="{% url 'product_details' product.id %}">
+                    <button type="button">Preview</button>
+                </a>
+
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>Category {{ productcategory.name }} has no items</div>
+{% endif %}
+
+
+</div>
+</body>
+</html>

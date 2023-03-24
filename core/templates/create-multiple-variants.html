@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="{% url 'create-multiple-variants' product.pk %}">
+    {% csrf_token %}
+
+    Color Variant
+    <hr/>
+    Variant Options
+    <input type="text" name="color"/>
+    <input type="text" name="color"/>
+    <input type="text" name="color"/>
+
+    <hr/>
+    <hr/>
+    /Size Variant
+    <hr/>
+    Variant Options
+    <input type="text" name="size"/>
+    <input type="text" name="size"/>
+    <input type="text" name="size"/>
+
+    <hr/>
+    /Material Variant
+    <hr/>
+    Variant Options
+    <input type="text" name="material"/>
+    <input type="text" name="material"/>
+    <input type="text" name="material"/>
+
+
+    <button>Submit</button>
+</form>
+</body>
+</html>

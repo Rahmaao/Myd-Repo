@@ -1,0 +1,34 @@
+
+- Material Icons
+- Material UI
+- Gradianto
+- Codely
+- CoderpillrDusk
+
+
+
+
+Product---
+
+
+
+ProductVariant
+
+product
+
+vairant-name = CharField = color
+variant-options = ArrayField [blue, ]
+
+
+-- Process to Eat
+
+-- Put spoon in food,
+-- Scoop food,
+-- Put food in human's mouth
+
+
+--- Rahma's Process to Eat
+
+-- Put spoon in food,
+-- Scoop food
+-- Put food in my mouth.

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'test-product' %}">
+        {% csrf_token %}
+
+                Color Variant
+                <input type="text" name="color" />
+                <input type="text" name="color" />
+
+                <hr />
+                Size
+                <input type="text" name="size"/>
+                <input type="text" name="size"/>
+
+        <button>Submit</button>
+    </form>
+</body>
+</html>

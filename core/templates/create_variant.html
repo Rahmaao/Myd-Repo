@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="{% url 'create-variant' product.pk %}">
+    {% csrf_token %}
+
+    Variant Name
+    <input type="text" name="variant_name"/>
+
+    <hr/>
+    Variant Options
+    <input type="text" name="variant_option"/>
+    <input type="text" name="variant_option"/>
+    <input type="text" name="variant_option"/>
+
+    <button>Submit</button>
+</form>
+</body>
+</html>
